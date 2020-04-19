@@ -11,6 +11,7 @@
 #include "pb5_heartbeat.h"
 #include "tiny_timer.h"
 #include "watchdog.h"
+#include "application.h"
 
 static tiny_timer_group_t timer_group;
 static tiny_timer_t timer;
@@ -30,6 +31,8 @@ void main(void) {
     pb5_heartbeat_init(&timer_group);
   }
   enableInterrupts();
+
+  application_init();
 
   kick_watchdog(&timer_group, NULL);
 
