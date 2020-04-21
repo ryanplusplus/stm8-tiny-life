@@ -3,6 +3,9 @@ BUILD_DIR ?= ./build/test
 STM8_TINY = lib/stm8-tiny
 TINY = $(STM8_TINY)/lib/tiny
 
+SRC_FILES ?= \
+  src/life.c \
+
 SRC_DIRS ?= \
   $(TINY)/src \
   $(TINY)/test/double \
@@ -10,11 +13,12 @@ SRC_DIRS ?= \
 
 INC_DIRS ?= \
   $(STM8_TINY)/src \
-	$(TINY)/include \
+  $(TINY)/include \
+  src \
 
 LDFLAGS := -lstdc++ -lCppUTest -lCppUTestExt -lm
 
-SRCS := $(shell find $(SRC_DIRS) -name *.cpp -or -name *.c -or -name *.s)
+SRCS := $(shell find $(SRC_DIRS) -name *.cpp -or -name *.c -or -name *.s) $(SRC_FILES)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 

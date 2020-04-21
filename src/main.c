@@ -32,7 +32,7 @@ void main(void) {
   }
   enableInterrupts();
 
-  application_init();
+  application_init(&timer_group);
 
   kick_watchdog(&timer_group, NULL);
 
