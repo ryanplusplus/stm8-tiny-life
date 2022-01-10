@@ -16,11 +16,10 @@ SRC_FILES := \
 
 SRC_DIRS := \
   src \
-  lib/tiny-devices/src \
 
 INC_DIRS := \
-  lib/tiny-devices/include \
 
 include lib/stm8-tiny/lib_stm8-tiny.mk
+include lib/tiny-devices/lib_tiny-devices.mk
 
 include tools/tools.mk
