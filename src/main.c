@@ -20,8 +20,8 @@ void main(void) {
   interrupts_disable();
   {
     clock_init();
-    watchdog_init(&timer_group);
     tiny_timer_group_init(&timer_group, tim4_system_tick_init());
+    watchdog_init(&timer_group);
     pb5_heartbeat_init(&timer_group);
   }
   interrupts_enable();
